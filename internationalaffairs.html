@@ -1,87 +1,483 @@
-<style>
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 30px 10px 10px;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
-    margin: 40px auto 20px;
-    max-width: 800px;
-  }
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>International Affairs Services | Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  .section-text {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 900px;
-    font-size: 16px;
-  }
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
+    }
 
-  .highlights {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-  .highlight-box {
-    background-color: #2d1c14;
-    color: white;
-    width: 260px;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
 
-  .details-box {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 900px;
-    background-color: #2d1c14;
-    color: white;
-    padding: 25px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    /* Navbar – same style as homepage */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
 
-  .details-box strong {
-    color: #fff;
-  }
-</style>
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
 
-<div class="section-title">INTERNATIONAL AFFAIRS SERVICES</div>
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      align-items: center;
+    }
 
-<div class="section-text">
-  We offer comprehensive international affairs services to support your global lifestyle and business needs. Whether you're planning to immigrate, study abroad, get married overseas, or require visa assistance, our expert team guides you through every step.<br /><br />
-  Serving clients across Australia, the U.S., UK, Canada, Singapore, UAE, Hong Kong, and New Zealand, we ensure your international matters are handled smoothly and professionally.
-</div>
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
 
-<div class="highlights">
-  <div class="highlight-box">IMMIGRATION &<br/>VISA SUPPORT</div>
-  <div class="highlight-box">REGISTERED VISA<br/>AGENT SERVICES</div>
-  <div class="highlight-box">OVERSEAS STUDY<br/>CONSULTING</div>
-  <div class="highlight-box">INTERNATIONAL<br/>MARRIAGE</div>
-  <div class="highlight-box">FEATURE: U.S.<br/>ONLINE MARRIAGE</div>
-</div>
+    .nav-links a:hover { color: var(--accent); }
 
-<div class="details-box">
-  <p><strong>Our International Affairs Services Include:</strong></p>
-  <ul>
-    <li>Immigration and visa advisory</li>
-    <li>Registered visa agent support</li>
-    <li>Overseas education consultation and application</li>
-    <li>International marriage and cross-border relationship services</li>
-  </ul>
-  <p><strong>Featured Service:</strong> Legally recognised U.S. online marriage — ideal for international couples, visa applications, and official documentation</p>
-  <p><strong>We Provide:</strong> End-to-end guidance, document preparation, and multilingual support to help you navigate complex international processes with ease.</p>
-</div>
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .nav-lang-switch span { opacity: 0.5; }
+
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      opacity: 0.75;
+    }
+
+    .nav-lang-switch a.active {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .nav-lang-switch a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero */
+    .service-hero {
+      margin-top: 60px; /* offset navbar */
+      padding: 80px 10% 60px;
+      background: radial-gradient(circle at top left, rgba(74,144,226,0.25), transparent),
+                  linear-gradient(to bottom right, #0A1A2F, #133556);
+      color: #ffffff;
+    }
+
+    .service-hero-inner {
+      max-width: 720px;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 47, 87, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #39d98a;
+    }
+
+    .service-hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .service-hero p {
+      font-size: 15px;
+      margin: 0 0 18px;
+      color: #d0d7e6;
+      max-width: 640px;
+    }
+
+    .service-meta {
+      font-size: 12px;
+      color: #9fb3d9;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74,144,226,0.4);
+    }
+
+    /* Sections */
+    main section {
+      padding: 56px 10%;
+    }
+
+    main section:nth-of-type(odd) { background: #ffffff; }
+    main section:nth-of-type(even) { background: var(--bg-light); }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #52637d;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 32px;
+      max-width: 980px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #52637d;
+    }
+
+    .bullet-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 980px;
+    }
+
+    .pill-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .pill-card span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #52637d;
+      margin-top: 6px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 980px;
+    }
+
+    footer {
+      background: --primary;
+      background: #0A1A2F;
+      color: #ffffff;
+      padding: 24px 10%;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .navbar { padding: 12px 20px; }
+      .service-hero { padding: 72px 20px 48px; }
+      main section { padding: 48px 20px; }
+      .two-col { grid-template-columns: minmax(0,1fr); }
+      .highlight-grid { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .service-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/index.html" class="active">EN</a>
+        <span>|</span>
+        <a href="/cn.html">中文</a>
+      </div>
+      <a href="/index.html#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="service-hero">
+    <div class="service-hero-inner">
+      <div class="service-badge">
+        <span class="service-badge-dot"></span>
+        INTERNATIONAL AFFAIRS
+      </div>
+      <h1>Immigration, Study Abroad & International Marriage Support</h1>
+      <p>
+        We support your global lifestyle with coordinated services for visas, immigration, study abroad and
+        international marriage, working alongside registered partners where required.
+      </p>
+      <div class="service-meta">
+        VISA & IMMIGRATION • STUDY ABROAD • INTERNATIONAL MARRIAGE • GLOBAL LIFESTYLE
+      </div>
+      <a href="/index.html#contact" class="btn-primary">Talk to Us About Your Plans</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section>
+      <h2>Who This Service Is For</h2>
+      <p class="section-intro">
+        Our international affairs services are designed for clients building a life across borders — whether you are
+        relocating, studying overseas or formalising a relationship in another jurisdiction.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <p><strong>We commonly assist clients who are:</strong></p>
+          <ul class="bullet-list">
+            <li>Planning to immigrate or change their primary country of residence.</li>
+            <li>Applying for study visas or education pathways abroad.</li>
+            <li>Managing cross-border relationships and international marriage.</li>
+            <li>Balancing personal immigration plans with business or asset structures.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p><strong>Regions we frequently work with:</strong></p>
+          <ul class="bullet-list">
+            <li>Australia, New Zealand and the wider Asia-Pacific region.</li>
+            <li>United States, Canada and the United Kingdom.</li>
+            <li>Singapore, Hong Kong and the United Arab Emirates.</li>
+          </ul>
+          <p style="margin-top: 10px;">
+            We coordinate with licensed and registered partners in each relevant jurisdiction where local regulation
+            requires it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key service areas -->
+    <section>
+      <h2>Key International Affairs Services</h2>
+      <p class="section-intro">
+        Our role is to simplify the path, outline your options and connect you with appropriate professionals while
+        keeping communication centralised.
+      </p>
+
+      <div class="highlight-grid">
+        <div class="pill-card">
+          Immigration & Visa Support
+          <span>High-level guidance on options, combined with referrals to registered migration professionals.</span>
+        </div>
+        <div class="pill-card">
+          Registered Visa Agent Services
+          <span>Coordination with licensed agents where required by law in specific countries.</span>
+        </div>
+        <div class="pill-card">
+          Overseas Study Consulting
+          <span>Support with education choices, application strategy and documentation planning.</span>
+        </div>
+        <div class="pill-card">
+          International Marriage
+          <span>Guidance on documentation, recognition requirements and cross-border implications.</span>
+        </div>
+        <div class="pill-card">
+          Featured: U.S. Online Marriage
+          <span>Legally recognised online ceremonies suitable for many couples with cross-border constraints.</span>
+        </div>
+        <div class="pill-card">
+          Documentation & Coordination
+          <span>Aligning your personal documents with notary, apostille and banking requirements where needed.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured: US online marriage -->
+    <section>
+      <h2>Featured Service: U.S. Online Marriage</h2>
+      <p class="section-intro">
+        International couples often face practical barriers when they live in different countries or cannot easily
+        travel together. U.S. online marriage solutions can provide a recognised pathway in select situations.
+      </p>
+
+      <div class="info-card">
+        <p><strong>When this can be helpful:</strong></p>
+        <ul class="bullet-list">
+          <li>Couples living in different countries who need a recognised marriage certificate.</li>
+          <li>Partners planning visa or residency applications that require proof of relationship.</li>
+          <li>Situations where it is difficult or costly for both parties to be physically present.</li>
+        </ul>
+
+        <p style="margin-top: 14px;"><strong>What we assist with:</strong></p>
+        <ul class="bullet-list">
+          <li>Explaining how online marriage processes work and where they may be recognised.</li>
+          <li>Connecting you with appropriate service providers and legal professionals.</li>
+          <li>Coordinating follow-up steps such as notary, apostille and document use in other jurisdictions.</li>
+        </ul>
+
+        <p style="margin-top: 14px;">
+          Recognition of online marriages depends on local law in each country. Our role is to coordinate and connect
+          you with the right advisers, not to replace local legal or migration advice.
+        </p>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section>
+      <h2>How We Work With You</h2>
+      <p class="section-intro">
+        International matters touch multiple systems at once: immigration, education, banking, tax and sometimes
+        corporate structures. We help you organise the process so it feels manageable.
+      </p>
+
+      <div class="info-card">
+        <p><strong>1. Initial discussion</strong> – You share your current situation, target country or countries and
+        the outcome you are aiming for (study, residency, marriage, relocation, or a mix).</p>
+
+        <p><strong>2. Mapping your options</strong> – We outline possible pathways and identify where specialist input
+        from registered migration agents, lawyers or education partners will be required.</p>
+
+        <p><strong>3. Coordination & documentation</strong> – We help you prepare and organise supporting documents,
+        including links back to our notary, apostille and company services where relevant.</p>
+
+        <p><strong>4. Ongoing support</strong> – As your personal or business situation evolves, we remain available to
+        coordinate the next steps across multiple jurisdictions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Elite Global Solutions PTY LTD. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>

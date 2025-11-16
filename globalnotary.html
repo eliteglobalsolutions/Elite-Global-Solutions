@@ -1,136 +1,415 @@
-<style>
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 30px 10px 10px;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
-    margin: 40px auto 20px;
-    max-width: 800px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Notary & Legalisation | Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  .section-text {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 900px;
-    font-size: 16px;
-  }
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
+    }
 
-  .highlights {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-  .highlight-box {
-    background-color: #2d1c14;
-    color: white;
-    width: 260px;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
 
-  .countries-text {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 900px;
-    background-color: #2d1c14;
-    color: white;
-    padding: 25px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    /* Navbar – same style as homepage */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
 
-  .countries-text strong {
-    color: #fff;
-  }
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
 
-  .document-section {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    max-width: 900px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      align-items: center;
+    }
 
-  .document-section ul {
-    padding-left: 20px;
-    margin-bottom: 20px;
-  }
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
 
-  .document-section li {
-    margin-bottom: 10px;
-  }
+    .nav-links a:hover { color: var(--accent); }
 
-  .document-section strong {
-    color: #fff;
-  }
-</style>
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-<div class="section-title">GLOBAL NOTARY SERVICES</div>
+    .nav-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
 
-<div class="section-text">
-  We provide notary services across <strong>50+ countries</strong>, including Australia, the U.S., UK, Canada, Singapore, UAE, Hong Kong, and New Zealand.<br /><br />
-  Our services cover notarisation of personal and business documents, certified copies, affidavits, powers of attorney, and more. 
-  We assist with apostille and embassy legalisation through official authorities such as DFAT (Australia), SAL (Singapore), FCDO (UK), and state/federal agencies in the U.S.<br /><br />
-  Online and remote notarisation is available in select jurisdictions. Additional support includes document translation, certification, and secure international delivery.
-</div>
+    .nav-lang-switch span { opacity: 0.5; }
 
-<div class="section-title">DOCUMENT TYPES WE HANDLE</div>
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      opacity: 0.75;
+    }
 
-<div class="document-section">
-  <ul>
-    <li>Passport and ID Certification</li>
-    <li>Birth, Death, Marriage, and Divorce Certificates</li>
-    <li>Academic Transcripts and Diplomas</li>
-    <li>Police Check (NPC) – <strong>Express Application Available</strong></li>
-    <li>Driver's Licences and International Permits</li>
-    <li>Affidavits and Statutory Declarations</li>
-    <li>Commercial Invoices and Certificates of Origin</li>
-    <li>Company Constitution and ASIC Documents</li>
-    <li>Power of Attorney and Legal Authorisations</li>
-    <li>Bank Statements and Financial Reports</li>
-    <li>Employment Contracts and Letters</li>
-    <li>Property and Real Estate Documents</li>
-    <li>Travel Consent Letters for Minors</li>
-  </ul>
+    .nav-lang-switch a.active {
+      opacity: 1;
+      font-weight: 500;
+    }
 
-  <p><strong>Need a police check urgently?</strong> We offer <strong>Express NPC (National Police Check)</strong> processing to help you meet deadlines for visas, employment, licensing, and other official uses.</p>
+    .nav-lang-switch a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
 
-  <p>If your required document isn’t listed, contact us — we may still be able to help.</p>
-</div>
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.25s ease;
+    }
 
-<div class="section-title">OUR KEY SERVICES</div>
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
 
-<div class="highlights">
-  <div class="highlight-box">NOTARISATION<br/>DOCUMENTS</div>
-  <div class="highlight-box">APOSTILLE &<br/>LEGALISATION</div>
-  <div class="highlight-box">REMOTE /<br/>ONLINE SERVICES</div>
-  <div class="highlight-box">TRANSLATION &<br/>CERTIFICATION</div>
-  <div class="highlight-box">GLOBAL SHIPPING<br/>AND TRACKING</div>
-</div>
+    /* Hero */
+    .service-hero {
+      margin-top: 60px; /* offset navbar */
+      padding: 80px 10% 60px;
+      background: radial-gradient(circle at top left, rgba(74,144,226,0.25), transparent),
+                  linear-gradient(to bottom right, #0A1A2F, #133556);
+      color: #ffffff;
+    }
 
-<div class="section-title">COUNTRIES & AUTHORITIES</div>
+    .service-hero-inner {
+      max-width: 720px;
+    }
 
-<div class="countries-text">
-  <p><strong>Authorities We Work With:</strong> DFAT (Australia), SAL (Singapore), FCDO (UK), U.S. state/federal agencies</p>
-  <p><strong>Remote Notary Available:</strong> U.S., UK, Canada, and other selected jurisdictions</p>
-  <p><strong>Languages & Custom Support:</strong> Translation available for Chinese, German, Tagalog, Hindi, and more</p>
-  <p><strong>By Request:</strong> We also serve countries like Germany, China, India, and the Philippines</p>
-</div>
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 47, 87, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #39d98a;
+    }
+
+    .service-hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .service-hero p {
+      font-size: 15px;
+      margin: 0 0 18px;
+      color: #d0d7e6;
+      max-width: 640px;
+    }
+
+    .service-meta {
+      font-size: 12px;
+      color: #9fb3d9;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74,144,226,0.4);
+    }
+
+    /* Sections */
+    main section {
+      padding: 56px 10%;
+    }
+
+    main section:nth-of-type(odd) { background: #ffffff; }
+    main section:nth-of-type(even) { background: var(--bg-light); }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #52637d;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 32px;
+      max-width: 980px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #52637d;
+    }
+
+    .bullet-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .jur-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 980px;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 24px 10%;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .navbar { padding: 12px 20px; }
+      .service-hero { padding: 72px 20px 48px; }
+      main section { padding: 48px 20px; }
+      .two-col { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .service-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/index.html" class="active">EN</a>
+        <span>|</span>
+        <a href="/cn.html">中文</a>
+      </div>
+      <a href="/index.html#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="service-hero">
+    <div class="service-hero-inner">
+      <div class="service-badge">
+        <span class="service-badge-dot"></span>
+        GLOBAL NOTARY & LEGALISATION
+      </div>
+      <h1>Notary, Apostille and Embassy Legalisation for Cross-Border Documents</h1>
+      <p>
+        We coordinate notary, apostille and embassy legalisation so your personal and corporate documents are recognised
+        by authorities, banks and institutions in the destination country.
+      </p>
+      <div class="service-meta">
+        PERSONAL & CORPORATE DOCUMENTS • APOSTILLE • EMBASSY LEGALISATION
+      </div>
+      <a href="/index.html#contact" class="btn-primary">Discuss Your Documents</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section>
+      <h2>Who This Service Is For</h2>
+      <p class="section-intro">
+        Our global notary and legalisation support is designed for individuals, families and businesses who need their
+        documents accepted outside their home country.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <p><strong>Typical situations:</strong></p>
+          <ul class="bullet-list">
+            <li>Opening overseas bank accounts or investment accounts.</li>
+            <li>Using company documents in another country (e.g. incorporation, directors, shareholders).</li>
+            <li>Providing ID, KYC or proof of address for foreign institutions.</li>
+            <li>Submitting personal documents for immigration, study or marriage abroad.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p><strong>What we coordinate:</strong></p>
+          <ul class="bullet-list">
+            <li>Notarisation of documents by qualified notaries.</li>
+            <li>Apostille through the relevant authority (e.g. foreign affairs/DFAT for Hague countries).</li>
+            <li>Embassy or consulate legalisation for non-Hague jurisdictions.</li>
+            <li>Where necessary, certified translation via trusted partners.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document types & process -->
+    <section>
+      <h2>Documents We Commonly Handle</h2>
+      <p class="section-intro">
+        Every case is different, but many clients come to us for support with the following types of documents.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <p><strong>Personal documents:</strong></p>
+          <ul class="bullet-list">
+            <li>Birth, marriage and divorce certificates.</li>
+            <li>Police checks and background checks.</li>
+            <li>Academic transcripts and qualification certificates.</li>
+            <li>Powers of attorney and declarations.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p><strong>Corporate documents:</strong></p>
+          <ul class="bullet-list">
+            <li>Certificates of incorporation and good standing.</li>
+            <li>Board resolutions and shareholder resolutions.</li>
+            <li>Share registers and beneficial ownership documents.</li>
+            <li>Contracts, mandates and banking-related documentation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How the Process Works</h2>
+      <p class="section-intro">
+        Each destination country has its own rules. We help you understand the path your documents need to follow so you
+        do not repeat steps or miss a requirement.
+      </p>
+
+      <div class="jur-card">
+        <p><strong>1. Initial review</strong> – You send us clear scans of your documents and details of the country
+        where they will be used. We outline the likely pathway (notary only, apostille, or apostille + embassy).</p>
+
+        <p><strong>2. Notary & apostille</strong> – Where required, we coordinate notarisation and then apostille/legalisation
+        through the relevant authority.</p>
+
+        <p><strong>3. Embassy / consulate legalisation</strong> – For countries that are not part of the Hague Apostille
+        Convention, we work with the relevant embassy or consulate to complete the final legalisation step.</p>
+
+        <p><strong>4. Delivery</strong> – Completed documents can be returned to you or forwarded directly to your chosen
+        institution, according to local rules and your preference.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Elite Global Solutions PTY LTD. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>

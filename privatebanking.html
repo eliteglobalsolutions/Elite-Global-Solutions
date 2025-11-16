@@ -1,92 +1,338 @@
-<style>
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 30px 10px 10px;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
-    margin: 40px auto 20px;
-    max-width: 800px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Banking Services | Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  .section-text {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 900px;
-    font-size: 16px;
-  }
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
+    }
 
-  .highlights {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-  .highlight-box {
-    background-color: #2d1c14;
-    color: white;
-    width: 260px;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
 
-  .details-box {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 900px;
-    background-color: #2d1c14;
-    color: white;
-    padding: 25px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
 
-  .details-box strong {
-    color: #fff;
-  }
-</style>
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
 
-<div class="section-title">PRIVATE BANKING SERVICES</div>
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-<div class="section-text">
-  Our Private Banking services are designed for high-net-worth individuals, entrepreneurs, and global clients who require discreet, efficient, and strategic financial solutions. <br /><br />
-  At Elite Global Solutions, we connect clients with trusted international banking partners across Australia, Singapore, Hong Kong, UAE, the U.S., and other key financial hubs. Whether you're managing personal wealth, international transactions, or cross-border investments, we help you navigate the global banking landscape with confidence.
-</div>
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+    }
 
-<div class="highlights">
-  <div class="highlight-box">OFFSHORE & ONSHORE<br/>BANK ACCOUNT SETUP</div>
-  <div class="highlight-box">INTRO TO PRIVATE<br/>BANKING PARTNERS</div>
-  <div class="highlight-box">MULTI-CURRENCY<br/>ACCOUNT SUPPORT</div>
-  <div class="highlight-box">KYC & COMPLIANCE<br/>ADVISORY</div>
-  <div class="highlight-box">ASSET STRUCTURING<br/>AND PROTECTION</div>
-  <div class="highlight-box">CORPORATE BANK<br/>ACCOUNTS</div>
-</div>
+    .nav-links a:hover { color: var(--accent); }
 
-<div class="details-box">
-  <p><strong>Our Private Banking Services Include:</strong></p>
-  <ul>
-    <li>Offshore and onshore bank account setup</li>
-    <li>Introduction to reputable private banking institutions</li>
-    <li>Multi-currency accounts and international fund transfers</li>
-    <li>KYC and compliance advisory</li>
-    <li>Wealth protection and asset structuring</li>
-    <li>Investment account and platform onboarding</li>
-    <li>Corporate bank account opening (for foreign-owned companies)</li>
-    <li>Multilingual support and document preparation</li>
-  </ul>
-  <p><strong>We provide end-to-end support</strong> for private banking clients seeking global access, confidentiality, and strategic financial flexibility. With experience across multiple jurisdictions and strong partnerships in the banking sector, we ensure a seamless account setup and ongoing support process.</p>
-  <p><strong>Contact us today</strong> to discuss your private banking needs and let our team help you manage your wealth across borders.</p>
-</div>
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      font-size: 12px;
+      opacity: 0.75;
+    }
+
+    .nav-lang-switch a.active { opacity: 1; font-weight: 500; }
+    .nav-lang-switch a:hover { color: var(--accent); opacity: 1; }
+
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 12px;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero */
+    .service-hero {
+      margin-top: 60px;
+      padding: 80px 10% 60px;
+      background: radial-gradient(circle at top left, rgba(74,144,226,0.25), transparent),
+                  linear-gradient(to bottom right, #0A1A2F, #133556);
+      color: #ffffff;
+    }
+
+    .service-hero-inner {
+      max-width: 720px;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+    }
+
+    .service-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #39d98a;
+    }
+
+    .service-hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .service-hero p {
+      font-size: 15px;
+      color: #d0d7e6;
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74,144,226,0.4);
+    }
+
+    /* Sections */
+    main section {
+      padding: 60px 10%;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg-light);
+    }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      max-width: 720px;
+      color: #52637d;
+      margin-bottom: 20px;
+    }
+
+    /* Highlight boxes */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+      max-width: 1000px;
+    }
+
+    .pill {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .pill span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #52637d;
+      margin-top: 6px;
+    }
+
+    /* Details box */
+    .info-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 22px;
+      max-width: 1000px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #0A1A2F;
+      color: #ffffff;
+      padding: 28px 10%;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/privatebanking.html" class="active">EN</a>
+        <span>|</span>
+        <a href="/privatebanking_cn.html">中文</a>
+      </div>
+      <a href="/index.html#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="service-hero">
+    <div class="service-hero-inner">
+      <div class="service-badge">
+        <span class="service-badge-dot"></span> PRIVATE BANKING
+      </div>
+      <h1>Global Private Banking & Multi-Jurisdiction Wealth Solutions</h1>
+      <p>We connect you with trusted private banking partners across major global financial hubs.</p>
+      <a href="/index.html#contact" class="btn-primary">Start With a Consultation</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Intro -->
+    <section>
+      <h2>Empowering Your Global Wealth Strategy</h2>
+      <p class="section-intro">
+        Elite Global Solutions assists entrepreneurs, executives, investors and high-net-worth individuals in
+        establishing secure and strategic private banking relationships worldwide.
+      </p>
+
+      <div class="info-card">
+        <p><strong>We support clients seeking:</strong></p>
+        <ul style="margin-top: 10px; padding-left: 18px;">
+          <li>Offshore or onshore private banking access</li>
+          <li>International wealth structuring</li>
+          <li>Multi-currency banking capabilities</li>
+          <li>Tax-efficient global movement of funds</li>
+          <li>KYC, compliance and due-diligence preparation</li>
+        </ul>
+        <p style="margin-top: 10px;">
+          We partner with reputable banks in Australia, Singapore, Hong Kong, UAE, USA and Europe.
+        </p>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section>
+      <h2>Core Private Banking Services</h2>
+      <p class="section-intro">
+        Strategic, discreet and compliant financial solutions across borders.
+      </p>
+
+      <div class="highlight-grid">
+        <div class="pill">Offshore & Onshore Accounts<br><span>Personal & corporate setups</span></div>
+        <div class="pill">Banking Partner Introductions<br><span>Private & premier banking</span></div>
+        <div class="pill">Multi-Currency Banking<br><span>Hold, send & receive globally</span></div>
+        <div class="pill">KYC & Compliance Advisory<br><span>Prepare documents seamlessly</span></div>
+        <div class="pill">Asset Structuring<br><span>Wealth protection & planning</span></div>
+        <div class="pill">Corporate Banking<br><span>For foreign-owned businesses</span></div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section>
+      <h2>Full Banking Support, Start to Finish</h2>
+
+      <div class="info-card">
+        <p><strong>Our private banking support includes:</strong></p>
+        <ul style="padding-left: 18px;">
+          <li>Offshore and onshore bank account setup</li>
+          <li>Introductions to reputable global banks</li>
+          <li>Multi-currency account configuration</li>
+          <li>International fund transfer pathways</li>
+          <li>KYC and compliance advisory</li>
+          <li>Investment platform onboarding</li>
+          <li>Corporate account opening for global entities</li>
+          <li>Document preparation and multilingual assistance</li>
+        </ul>
+
+        <p style="margin-top: 12px;">
+          Our team ensures a smooth, secure and coordinated experience — with confidentiality, clarity and compliance at the core.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Elite Global Solutions PTY LTD. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>

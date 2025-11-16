@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elite Global Solutions PTY LTD</title>
+  <title>Elite Global Solutions PTY LTD | 全球商务与法律服务</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -22,38 +22,23 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Inter, system-ui, sans-serif;
       color: var(--primary);
       background-color: #ffffff;
     }
 
-    /* Simple fade-in animation */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    .fade-in {
-      opacity: 0;
-      animation: fadeInUp 0.7s ease forwards;
-    }
-
+    .fade-in { opacity: 0; animation: fadeInUp 0.7s ease forwards; }
     .fade-in.delay-1 { animation-delay: 0.15s; }
     .fade-in.delay-2 { animation-delay: 0.3s; }
     .fade-in.delay-3 { animation-delay: 0.45s; }
 
-    /* Top Navigation */
     .navbar {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 10;
       background: rgba(10, 26, 47, 0.92);
       backdrop-filter: blur(10px);
@@ -82,8 +67,6 @@
     .nav-links a {
       text-decoration: none;
       color: #e4ebf5;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
       font-size: 12px;
     }
 
@@ -91,37 +74,9 @@
       color: var(--accent);
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .nav-lang {
       font-size: 11px;
-    }
-
-    .nav-lang-switch span {
-      opacity: 0.5;
-    }
-
-    .nav-lang-switch a {
-      text-decoration: none;
-      color: #e4ebf5;
-      opacity: 0.75;
-    }
-
-    .nav-lang-switch a.active {
-      opacity: 1;
-      font-weight: 500;
-    }
-
-    .nav-lang-switch a:hover {
-      color: var(--accent);
-      opacity: 1;
+      opacity: 0.8;
     }
 
     .nav-cta {
@@ -163,7 +118,7 @@
       position: relative;
       z-index: 1;
       max-width: 640px;
-      margin-top: 60px; /* offset for navbar */
+      margin-top: 60px;
     }
 
     .hero-badge {
@@ -203,8 +158,6 @@
 
     .hero-subline {
       font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
       color: #9fb3d9;
       margin-bottom: 20px;
     }
@@ -259,13 +212,8 @@
       padding: 80px 10%;
     }
 
-    main section:nth-of-type(odd) {
-      background: #ffffff;
-    }
-
-    main section:nth-of-type(even) {
-      background: var(--bg-light);
-    }
+    main section:nth-of-type(odd) { background: #ffffff; }
+    main section:nth-of-type(even) { background: var(--bg-light); }
 
     h2 {
       font-family: Poppins, sans-serif;
@@ -280,7 +228,6 @@
       margin-bottom: 32px;
     }
 
-    /* About layout */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
@@ -316,7 +263,6 @@
       color: var(--accent);
     }
 
-    /* Services */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -369,7 +315,6 @@
       border-color: #c3d0ea;
     }
 
-    /* Why us strip */
     .why-strip {
       display: flex;
       flex-wrap: wrap;
@@ -385,7 +330,6 @@
       background: #ffffff;
     }
 
-    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
@@ -415,13 +359,8 @@
       font-size: 14px;
     }
 
-    .contact-list li + li {
-      margin-top: 8px;
-    }
-
-    .contact-list span {
-      color: #52637d;
-    }
+    .contact-list li + li { margin-top: 8px; }
+    .contact-list span { color: #52637d; }
 
     footer {
       background: var(--primary);
@@ -440,69 +379,34 @@
       text-decoration: underline;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 960px) {
-      .navbar {
-        padding: 12px 20px;
-      }
-
-      header {
-        padding: 0 20px;
-        text-align: left;
-      }
-
-      .hero-inner {
-        margin-top: 70px;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .navbar { padding: 12px 20px; }
+      header { padding: 0 20px; }
+      .hero-inner { margin-top: 70px; }
+      .about-grid, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 640px) {
-      header h1 {
-        font-size: 30px;
-      }
-
-      .services-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      main section {
-        padding: 64px 20px;
-      }
-
-      .nav-links {
-        display: none; /* simple mobile treatment */
-      }
+      header h1 { font-size: 30px; }
+      .services-grid { grid-template-columns: minmax(0, 1fr); }
+      main section { padding: 64px 20px; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Top Navigation using your existing sections -->
   <div class="navbar">
     <div class="nav-logo">Elite Global Solutions</div>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">关于我们</a>
+      <a href="#services">解决方案</a>
+      <a href="#contact">联系我们</a>
+      <a href="/index.html" class="nav-lang">EN</a>
     </div>
-    <div class="nav-actions">
-      <div class="nav-lang-switch">
-        <a href="/index.html" class="active">EN</a>
-        <span>|</span>
-        <a href="cn.html">中文</a>
-      </div>
-      <a href="#contact" class="nav-cta">Book a Consultation</a>
-    </div>
+    <a href="#contact" class="nav-cta">预约咨询</a>
   </div>
 
   <header>
@@ -513,149 +417,150 @@
       </div>
       <h1>ELITE GLOBAL SOLUTIONS</h1>
       <p>
-        We provide integrated legal, tax, banking and advisory solutions for individuals and businesses expanding across borders.
+        我们为跨境发展的个人与企业提供一体化的法律、税务、银行及咨询解决方案，协助您安全、合规地进入全球市场。
       </p>
-      <div class="hero-subline">COMPANY REGISTRY • GLOBAL NOTARY • TAX • INTERNATIONAL AFFAIRS • PR • PRIVATE BANKING</div>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Get Started</a>
-        <a href="#services" class="btn-secondary">View Services</a>
+      <div class="hero-subline">
+        公司注册／全球公证与认证／税务筹划／国际事务／品牌与公关／私人银行服务
       </div>
-      <div class="hero-meta">Serving clients across Australia, China, USA, Singapore, UK, UAE, Hong Kong and more.</div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">立即联系顾问</a>
+        <a href="#services" class="btn-secondary">查看服务方向</a>
+      </div>
+      <div class="hero-meta">
+        服务覆盖澳大利亚、中国、美国、新加坡、英国、阿联酋、香港等核心司法辖区。
+      </div>
     </div>
   </header>
 
   <main>
     <section id="about" class="fade-in delay-1">
-      <h2>About Elite Global Solutions</h2>
+      <h2>关于 Elite Global Solutions</h2>
       <p class="section-intro">
-        Elite Global Solutions is a global service provider supporting micro and large businesses to expand across borders.
-        We connect clients with trusted legal, tax, banking and advisory partners in key jurisdictions around the world.
+        Elite Global Solutions 是一家面向全球的综合服务机构，为个人及企业在跨境发展过程中提供专业支持，
+        包括公司注册、国际公证认证、税务与合规、私人银行与国际事务等。
       </p>
 
       <div class="about-grid">
         <div>
           <p>
-            From company registration and international affairs to private banking introductions and public relations,
-            our team coordinates complex cross-border matters with clarity and precision. We act as your single point of
-            contact, helping you navigate requirements in multiple countries without complexity.
+            无论您是设立海外公司、处理跨境文件，还是规划资产架构，我们团队都会作为您的单一对接窗口，
+            协调不同国家的律师、会计师及银行顾问，为您减少沟通成本和时间成本。
           </p>
           <div class="about-points">
-            <span>Support across 10+ major jurisdictions</span>
-            <span>Partnerships with global law and tax firms</span>
-            <span>Multilingual guidance for international clients</span>
-            <span>End-to-end coordination from start to completion</span>
+            <span>覆盖 10+ 主要国家与地区</span>
+            <span>与多家全球律所及税务机构建立合作</span>
+            <span>提供中英双语等多语种服务</span>
+            <span>从咨询到落地全流程跟进</span>
           </div>
         </div>
 
         <div class="about-highlight-box">
-          <h3>Global Reach, Local Expertise</h3>
+          <h3>全球布局，本地视角</h3>
           <p>
-            AUSTRALIA • CHINA • USA • SINGAPORE • UK • UAE • HONG KONG
+            AUSTRALIA · CHINA · USA · SINGAPORE · UK · UAE · HONG KONG
           </p>
           <p>
-            Whether you are incorporating a new company, preparing documents for overseas use, or opening international
-            bank accounts, Elite Global Solutions helps you move with confidence and compliance.
+            无论您是设立新公司、准备海外使用的法律文件，还是开立国际银行账户，
+            Elite Global Solutions 都致力于让您的每一步合规、高效、可预期。
           </p>
         </div>
       </div>
     </section>
 
     <section id="services" class="fade-in delay-2">
-      <h2>Our Solutions</h2>
+      <h2>我们的解决方案</h2>
       <p class="section-intro">
-        Explore specialised service lines designed to support entrepreneurs, investors and organisations with their
-        global expansion and cross-border requirements.
+        我们围绕企业与高净值客户的实际需求，提供从业务架构、文件认证到税务合规与品牌建设的一站式服务组合。
       </p>
 
       <div class="services-grid">
         <div class="service-box">
           <div>
             <div class="service-label">Business Setup</div>
-            <h3>Company Registry</h3>
-            <p>Register or relocate your company with access to 5,000+ premium global business addresses.</p>
+            <h3>公司注册与地址服务</h3>
+            <p>协助在全球主要司法辖区设立或迁移公司，并提供 5,000+ 优质商业地址资源。</p>
           </div>
-          <a href="companyregestry.html" class="service-link">View Company Registry & Relocation →</a>
+          <a href="/companyregestry" class="service-link">查看公司注册与迁移 →</a>
         </div>
 
         <div class="service-box">
           <div>
             <div class="service-label">Legalisation</div>
-            <h3>Global Notary</h3>
-            <p>Notary, apostille and embassy legalisation across 50+ countries for personal and business documents.</p>
+            <h3>跨境公证与认证</h3>
+            <p>为个人及企业文件提供公证、海牙认证（Apostille）及多国使馆认证服务，覆盖 50+ 国家。</p>
           </div>
-          <a href="globalnotary.html" class="service-link">View Global Notary Services →</a>
+          <a href="/globalnotary" class="service-link">查看公证与认证服务 →</a>
         </div>
 
         <div class="service-box">
           <div>
             <div class="service-label">Tax & Compliance</div>
-            <h3>Tax Advisory</h3>
-            <p>Personal and corporate tax planning, international compliance and reporting support.</p>
+            <h3>税务筹划与合规</h3>
+            <p>个人与公司税务规划、申报及跨境合规策略，协助降低税务风险并优化整体结构。</p>
           </div>
-          <a href="taxadvisory.html" class="service-link">View Tax Advisory →</a>
+          <a href="/taxadvisory" class="service-link">查看税务顾问服务 →</a>
         </div>
 
         <div class="service-box">
           <div>
             <div class="service-label">Global Lifestyle</div>
-            <h3>International Affairs</h3>
-            <p>Visa, immigration, study abroad, and international marriage support with registered advisors.</p>
+            <h3>国际事务与身份规划</h3>
+            <p>涵盖签证、移民、留学及国际婚姻等事务，为您提供合规路径与专业对接。</p>
           </div>
-          <a href="internationalaffairs.html" class="service-link">View International Affairs →</a>
+          <a href="/internationalaffairs" class="service-link">查看国际事务服务 →</a>
         </div>
 
         <div class="service-box">
           <div>
             <div class="service-label">Reputation</div>
-            <h3>Public Relations</h3>
-            <p>Strategic PR, media relations and brand positioning across global markets.</p>
+            <h3>品牌与公共关系</h3>
+            <p>协助品牌在目标市场建立专业形象，覆盖媒体关系、公关策略与市场沟通。</p>
           </div>
-          <a href="publicrelations.html" class="service-link">View Public Relations →</a>
+          <a href="/publicrelations" class="service-link">查看品牌与公关服务 →</a>
         </div>
 
         <div class="service-box">
           <div>
             <div class="service-label">Wealth & Banking</div>
-            <h3>Private Banking</h3>
-            <p>Introductions to trusted banking partners, multi-currency accounts and global wealth structuring.</p>
+            <h3>私人银行与财富架构</h3>
+            <p>对接值得信赖的银行伙伴，规划多币种账户与全球资产结构布局。</p>
           </div>
-          <a href="privatebanking.html" class="service-link">View Private Banking →</a>
+          <a href="/privatebanking" class="service-link">查看私人银行服务 →</a>
         </div>
       </div>
 
       <div class="why-strip">
-        <div class="why-pill">End-to-end coordination across services</div>
-        <div class="why-pill">Solutions for micro and large businesses</div>
-        <div class="why-pill">Secure handling of sensitive information</div>
+        <div class="why-pill">服务从方案设计到落地执行全流程覆盖</div>
+        <div class="why-pill">适用于创业者、中小企业与高净值客户</div>
+        <div class="why-pill">重视隐私与敏感信息安全</div>
       </div>
     </section>
 
     <section id="contact" class="fade-in delay-3">
-      <h2>Contact Us</h2>
+      <h2>联系我们</h2>
       <p class="section-intro">
-        Speak with our team to begin your global business or legal process today. Share your goals and we will
-        recommend the right combination of solutions and jurisdictions.
+        欢迎与我们分享您的目标国家、业务类型及时间安排，我们会为您推荐合适的方案组合与下一步路径。
       </p>
 
       <div class="contact-grid">
         <div class="contact-card">
-          <h3>Get in Touch</h3>
+          <h3>联系顾问团队</h3>
           <ul class="contact-list">
-            <li><span>Email:</span> eliteglobalsolutions@eliteglobalsolutions.co</li>
-            <li><span>Phone:</span> +61 410 244 408</li>
-            <li><span>Location:</span> Sydney, Australia</li>
-            <li><span>Hours:</span> Monday – Friday, 9:00 – 17:00 (AEST)</li>
+            <li><span>邮箱：</span> eliteglobalsolutions@eliteglobalsolutions.co</li>
+            <li><span>电话：</span> +61 410 244 408</li>
+            <li><span>地点：</span> 澳大利亚 · 悉尼</li>
+            <li><span>工作时间：</span> 周一至周五 9:00 – 17:00（AEST）</li>
           </ul>
         </div>
 
         <div>
           <p style="font-size: 14px; color: #52637d; margin-top: 0;">
-            Please include the countries you are interested in, the services you require, and any deadlines you are
-            working with. Our team will respond with a tailored outline of next steps.
+            如有紧急的文件认证、税务或银行相关事项，请在邮件中注明您的时区与截止时间，
+            我们会尽量为您安排更合适的沟通时间。
           </p>
           <p style="font-size: 13px; color: #8896b3;">
-            For urgent document legalisation, tax or banking matters, indicate your time zone so we can prioritise a
-            suitable call time.
+            您也可以简单描述目前所处阶段（例如：筹划中／已成立公司／已持有资产），
+            以便我们更精准地为您提供建议。
           </p>
         </div>
       </div>
@@ -667,7 +572,7 @@
       © 2025 Elite Global Solutions PTY LTD. All rights reserved.
     </div>
     <div style="margin-top: 6px;">
-      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+      联系我们：<a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
     </div>
   </footer>
 

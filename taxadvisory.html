@@ -1,92 +1,459 @@
-<style>
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 30px 10px 10px;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
-    margin: 40px auto 20px;
-    max-width: 800px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Advisory Services | Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  .section-text {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 900px;
-    font-size: 16px;
-  }
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
+    }
 
-  .highlights {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-  .highlight-box {
-    background-color: #2d1c14;
-    color: white;
-    width: 260px;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    font-weight: bold;
-    font-size: 16px;
-  }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
 
-  .details-box {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 900px;
-    background-color: #2d1c14;
-    color: white;
-    padding: 25px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    /* Navbar – same style as homepage */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
 
-  .details-box strong {
-    color: #fff;
-  }
-</style>
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
 
-<div class="section-title">TAX ADVISORY SERVICES</div>
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      align-items: center;
+    }
 
-<div class="section-text">
-  Our global tax advisory services support individuals and businesses with expert guidance across Australia, the U.S., UK, Singapore, UAE, Hong Kong, and more.<br /><br />
-  We provide tailored solutions in personal and corporate tax planning, international tax compliance, GST/VAT advice, business structuring, and residency tax matters. Whether you're expanding overseas, managing cross-border income, or navigating complex tax laws, our experienced advisors help you stay compliant and minimise liabilities.<br /><br />
-  We also assist with tax registrations, filings, audits, and ATO/IRS communication. Multilingual support and custom services are available for clients across Asia-Pacific, Europe, and North America.
-</div>
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
 
-<div class="highlights">
-  <div class="highlight-box">PERSONAL & BUSINESS<br/>TAX PLANNING</div>
-  <div class="highlight-box">INTERNATIONAL<br/>TAX SOLUTIONS</div>
-  <div class="highlight-box">GST, BAS & PAYROLL<br/>REPORTING</div>
-  <div class="highlight-box">BUSINESS STRUCTURING<br/>ADVICE</div>
-  <div class="highlight-box">ATO & IRS<br/>SUPPORT</div>
-  <div class="highlight-box">MULTILINGUAL SUPPORT<br/>ENGLISH / 中文 / 廣東話</div>
-</div>
+    .nav-links a:hover { color: var(--accent); }
 
-<div class="details-box">
-  <p><strong>Our Tax Advisory Services Include:</strong></p>
-  <ul>
-    <li>Personal & business tax planning</li>
-    <li>International and cross-border tax solutions</li>
-    <li>Company tax registration & compliance</li>
-    <li>GST, BAS, and payroll reporting</li>
-    <li>ATO/IRS communication and audit support</li>
-    <li>Business structuring and residency advice</li>
-    <li>Multilingual support in English, Mandarin & Cantonese</li>
-  </ul>
-  <p><strong>With extensive experience</strong> across multiple jurisdictions, our advisors provide strategic, practical guidance to manage your tax matters locally and globally.</p>
-  <p>Contact us today to simplify your tax obligations and optimise your international financial position.</p>
-</div>
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .nav-lang-switch span { opacity: 0.5; }
+
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      opacity: 0.75;
+    }
+
+    .nav-lang-switch a.active {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .nav-lang-switch a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero */
+    .service-hero {
+      margin-top: 60px; /* offset navbar */
+      padding: 80px 10% 60px;
+      background: radial-gradient(circle at top left, rgba(74,144,226,0.25), transparent),
+                  linear-gradient(to bottom right, #0A1A2F, #133556);
+      color: #ffffff;
+    }
+
+    .service-hero-inner {
+      max-width: 720px;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 47, 87, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #39d98a;
+    }
+
+    .service-hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .service-hero p {
+      font-size: 15px;
+      margin: 0 0 18px;
+      color: #d0d7e6;
+      max-width: 640px;
+    }
+
+    .service-meta {
+      font-size: 12px;
+      color: #9fb3d9;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74,144,226,0.4);
+    }
+
+    /* Sections */
+    main section {
+      padding: 56px 10%;
+    }
+
+    main section:nth-of-type(odd) { background: #ffffff; }
+    main section:nth-of-type(even) { background: var(--bg-light); }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #52637d;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 32px;
+      max-width: 980px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #52637d;
+    }
+
+    .bullet-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+      max-width: 980px;
+    }
+
+    .pill-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .pill-card span {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: #52637d;
+      margin-top: 6px;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 980px;
+    }
+
+    footer {
+      background: #0A1A2F;
+      color: #ffffff;
+      padding: 24px 10%;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .navbar { padding: 12px 20px; }
+      .service-hero { padding: 72px 20px 48px; }
+      main section { padding: 48px 20px; }
+      .two-col { grid-template-columns: minmax(0,1fr); }
+      .highlight-grid { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .service-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/index.html" class="active">EN</a>
+        <span>|</span>
+        <a href="/cn.html">中文</a>
+      </div>
+      <a href="/index.html#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="service-hero">
+    <div class="service-hero-inner">
+      <div class="service-badge">
+        <span class="service-badge-dot"></span>
+        TAX ADVISORY & COMPLIANCE
+      </div>
+      <h1>Cross-Border Personal and Corporate Tax Advisory</h1>
+      <p>
+        We coordinate with tax professionals to help you understand how different jurisdictions interact, so you can
+        structure your affairs with clarity and confidence.
+      </p>
+      <div class="service-meta">
+        STRUCTURING • RESIDENCY • REPORTING • INTERNATIONAL COMPLIANCE
+      </div>
+      <a href="/index.html#contact" class="btn-primary">Talk to Us About Your Situation</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section>
+      <h2>Who This Service Is For</h2>
+      <p class="section-intro">
+        Our tax advisory coordination is designed for individuals and businesses whose lives, clients or assets
+        span more than one country.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <p><strong>We commonly assist:</strong></p>
+          <ul class="bullet-list">
+            <li>Entrepreneurs operating companies in one country while living in another.</li>
+            <li>Professionals with global income streams (consulting, digital services, investments).</li>
+            <li>Clients considering a change of tax residency or relocation.</li>
+            <li>Owners of holding, IP or investment structures with cross-border exposure.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p><strong>Our role:</strong></p>
+          <ul class="bullet-list">
+            <li>Clarifying the questions you need to ask in each jurisdiction.</li>
+            <li>Connecting you with qualified tax advisors and accountants.</li>
+            <li>Coordinating between your legal, banking and tax teams.</li>
+            <li>Helping to translate complex advice into practical next steps.</li>
+          </ul>
+          <p style="margin-top: 10px; font-size: 12px; color:#8896b3;">
+            We are not a law firm or tax practice. All tax advice is provided by licensed professionals in the relevant jurisdictions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Areas -->
+    <section>
+      <h2>Key Areas of Focus</h2>
+      <p class="section-intro">
+        Every client’s profile is unique. We help you assemble the right team around these core themes.
+      </p>
+
+      <div class="highlight-grid">
+        <div class="pill-card">
+          International Structuring
+          <span>Aligning companies, holdings and IP with commercial and tax objectives.</span>
+        </div>
+        <div class="pill-card">
+          Residency & Domicile
+          <span>Understanding how moving countries may affect your tax position.</span>
+        </div>
+        <div class="pill-card">
+          Cross-Border Income
+          <span>Services, e-commerce and investment income received from multiple countries.</span>
+        </div>
+        <div class="pill-card">
+          Reporting & Compliance
+          <span>Coordinating filings and disclosures with local professionals.</span>
+        </div>
+        <div class="pill-card">
+          Banking & Tax Alignment
+          <span>Ensuring your banking and payment flows reflect underlying advice.</span>
+        </div>
+        <div class="pill-card">
+          Exit & Future Planning
+          <span>Preparing for liquidity events, relocation or long-term transitions.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section>
+      <h2>How We Work With You</h2>
+      <p class="section-intro">
+        Our aim is to reduce confusion and duplication by centralising coordination, while keeping specialist tax
+        advice in the hands of licensed professionals.
+      </p>
+
+      <div class="info-card">
+        <p><strong>1. Initial overview</strong> – You share your current structure (companies, trusts, key assets),
+        countries involved and your short- to medium-term goals.</p>
+
+        <p><strong>2. Mapping jurisdictions</strong> – We help you identify which countries are relevant for tax,
+        banking and reporting and where specialist advice is required.</p>
+
+        <p><strong>3. Professional referrals</strong> – We introduce you to tax advisors and accountants in the
+        appropriate jurisdictions, based on your profile and language needs.</p>
+
+        <p><strong>4. Coordination</strong> – As advice is provided, we assist with implementation steps such as
+        company changes, notary, banking introductions and document preparation.</p>
+
+        <p><strong>5. Ongoing support</strong> – We remain available to help coordinate updates as your situation
+        evolves (new countries, entities or investments).</p>
+
+        <p style="margin-top: 12px; font-size: 12px; color:#8896b3;">
+          Nothing on this page is legal or tax advice. All decisions should be made with qualified professionals
+          licensed in the relevant jurisdictions.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Elite Global Solutions PTY LTD. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>

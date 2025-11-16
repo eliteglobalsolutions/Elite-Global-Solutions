@@ -1,90 +1,368 @@
- <style>
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 30px 10px 10px;
-    border-top: 2px solid #111;
-    border-bottom: 2px solid #111;
-    margin: 40px auto 20px;
-    max-width: 800px;
-  }
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Company Registry & Relocation | Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  .section-text {
-    background-color: #2d1c14;
-    color: white;
-    padding: 30px 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 1.6;
-    max-width: 900px;
-    font-size: 16px;
-  }
-
-  .highlights {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .highlight-box {
-    background-color: #2d1c14;
-    color: white;
-    width: 220px;
-    padding: 25px 15px;
-    text-align: center;
-    border-radius: 12px;
-    border: 3px solid white;
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .section-text.left-align {
-    text-align: left;
-  }
-
-  .section-text p {
-    margin: 10px 0;
-  }
-  /* Floating Contact Box */
-    #contact-box {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: white;
-      border: 1px solid #ccc;
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      font-size: 14px;
-      z-index: 999;
-      width: 240px;
-      line-height: 1.6;
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
     }
-</style>
 
-<div class="section-title">REGISTER OR RELOCATE YOUR COMPANY TODAY</div>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
 
-<div class="section-text">
-  We help micro-business owners expand globally with top-tier web developers and experienced accountants.<br />
-  Begin your journey with access to 5,000+ premium global business addresses.<br /><br />
-  AUSTRALIA | CHINA | USA | SINGAPORE | UK | UAE | HONG KONG...
-</div>
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
 
-<div class="highlights">
-  <div class="highlight-box">SIMPLIFIED<br/>PROCESS</div>
-  <div class="highlight-box">FASTEST<br/>REGISTRY</div>
-  <div class="highlight-box">TAX &<br/>CUSTOMER SERVICE</div>
-</div>
+    /* Navbar – same style as homepage */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
 
-<div class="section-text left-align">
-  <p><strong>Popular Jurisdictions:</strong></p>
-  <p>🇪🇪 <strong>Estonia</strong> – Online registration, e-Residency, fast setup, digital business</p>
-  <p>🇺🇸 <strong>Delaware (USA)</strong> – 1-day setup, minimal info, no residency required</p>
-  <p>🇦🇪 <strong>UAE Free Zones</strong> – 100% foreign ownership, easy online setup, tax-friendly</p>
-  <p>🇻🇬 <strong>BVI / Cayman Islands</strong> – No tax, private, low paperwork, no reporting</p>
-  <p>🇸🇬 <strong>Singapore</strong> – Trusted, low tax, fast online registration, strong banking</p>
-</div>
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .nav-lang-switch span { opacity: 0.5; }
+
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      opacity: 0.75;
+    }
+
+    .nav-lang-switch a.active {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .nav-lang-switch a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Hero */
+    .service-hero {
+      margin-top: 60px; /* offset navbar */
+      padding: 80px 10% 60px;
+      background: radial-gradient(circle at top left, rgba(74,144,226,0.25), transparent),
+                  linear-gradient(to bottom right, #0A1A2F, #133556);
+      color: #ffffff;
+    }
+
+    .service-hero-inner {
+      max-width: 720px;
+    }
+
+    .service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 47, 87, 0.9);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .service-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #39d98a;
+    }
+
+    .service-hero h1 {
+      font-family: Poppins, sans-serif;
+      font-size: 32px;
+      margin: 0 0 10px;
+    }
+
+    .service-hero p {
+      font-size: 15px;
+      margin: 0 0 18px;
+      color: #d0d7e6;
+      max-width: 640px;
+    }
+
+    .service-meta {
+      font-size: 12px;
+      color: #9fb3d9;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 9px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(74,144,226,0.4);
+    }
+
+    main section {
+      padding: 56px 10%;
+    }
+
+    main section:nth-of-type(odd) { background: #ffffff; }
+    main section:nth-of-type(even) { background: var(--bg-light); }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #52637d;
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 32px;
+      max-width: 980px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 20px 22px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: #52637d;
+    }
+
+    .bullet-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    footer {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 24px 10%;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 960px) {
+      .navbar { padding: 12px 20px; }
+      .service-hero { padding: 72px 20px 48px; }
+      main section { padding: 48px 20px; }
+      .two-col { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .service-hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#services">Services</a>
+      <a href="/index.html#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/index.html" class="active">EN</a>
+        <span>|</span>
+        <a href="/cn.html">中文</a>
+      </div>
+      <a href="/index.html#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="service-hero">
+    <div class="service-hero-inner">
+      <div class="service-badge">
+        <span class="service-badge-dot"></span>
+        COMPANY REGISTRY & RELOCATION
+      </div>
+      <h1>Set Up or Relocate Your Company Across Borders</h1>
+      <p>
+        We coordinate company formation and relocation in key global jurisdictions, connecting you with trusted local
+        partners while keeping communication centralised through our team.
+      </p>
+      <div class="service-meta">
+        ESTONIA • DELAWARE • UAE FREE ZONES • SINGAPORE • BVI • CAYMAN • AUSTRALIA • HONG KONG
+      </div>
+      <a href="/index.html#contact" class="btn-primary">Talk to Us About Your Structure</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section>
+      <h2>Who This Service Is For</h2>
+      <p class="section-intro">
+        This service is designed for entrepreneurs, micro-business owners and international operators who require a
+        clean, compliant structure to support cross-border clients, payments and growth.
+      </p>
+
+      <div class="two-col">
+        <div class="card">
+          <p><strong>Typical use cases:</strong></p>
+          <ul class="bullet-list">
+            <li>Launching a new international consulting, e-commerce or digital business.</li>
+            <li>Relocating an existing structure from one jurisdiction to another.</li>
+            <li>Separating international activities from a domestic entity for clarity and risk management.</li>
+            <li>Adding holding or IP entities in reputable, flexible jurisdictions.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p><strong>What you get:</strong></p>
+          <ul class="bullet-list">
+            <li>Guidance on suitable jurisdictions based on your goals and risk profile.</li>
+            <li>Coordination with local lawyers, accountants and agents.</li>
+            <li>Support on document preparation, notarisation and apostille where needed.</li>
+            <li>Introductions to banking and payment partners where appropriate.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Jurisdictions snapshot -->
+    <section>
+      <h2>Snapshot of Popular Jurisdictions</h2>
+      <p class="section-intro">
+        We work with a curated list of jurisdictions chosen for reputation, practicality and alignment with different
+        business models.
+      </p>
+
+      <div class="card">
+        <p>🇪🇪 <strong>Estonia</strong> – Digital-first, e-Residency, efficient online registration, suitable for remote and online businesses.</p>
+        <p>🇺🇸 <strong>Delaware (USA)</strong> – Flexible corporate law, 1-day setup, commonly used for technology and investment structures.</p>
+        <p>🇦🇪 <strong>UAE Free Zones</strong> – 100% foreign ownership, tax-advantaged zones, attractive for trading and consulting entities.</p>
+        <p>🇻🇬 <strong>BVI / Cayman Islands</strong> – No corporate tax, private structures, often used for holding and investment vehicles (subject to professional advice).</p>
+        <p>🇸🇬 <strong>Singapore</strong> – Highly reputable, competitive tax regime, strong banking ecosystem and stable regulatory environment.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Elite Global Solutions PTY LTD. All rights reserved.</div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elite Global Solutions PTY LTD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0A1A2F;
+      --primary-soft: #0F2F57;
+      --accent: #4A90E2;
+      --bg-light: #f5f7fb;
+      --border-soft: #d9dfe7;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--primary);
+      background-color: #ffffff;
+    }
+
+    /* Simple fade-in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .fade-in.delay-1 { animation-delay: 0.15s; }
+    .fade-in.delay-2 { animation-delay: 0.3s; }
+    .fade-in.delay-3 { animation-delay: 0.45s; }
+
+    /* Top Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: rgba(10, 26, 47, 0.92);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 10%;
+      color: #ffffff;
+    }
+
+    .nav-logo {
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e4ebf5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .nav-lang-switch span {
+      opacity: 0.5;
+    }
+
+    .nav-lang-switch a {
+      text-decoration: none;
+      color: #e4ebf5;
+      opacity: 0.75;
+    }
+
+    .nav-lang-switch a.active {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    .nav-lang-switch a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-size: 12px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1499914485622-a88fac536970?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 0 10%;
+      color: white;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(74, 144, 226, 0.35), transparent),
+                  linear-gradient(to bottom, rgba(10, 26, 47, 0.9), rgba(10, 26, 47, 0.98));
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 640px;
+      margin-top: 60px; /* offset for navbar */
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(15, 47, 87, 0.8);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #39d98a;
+    }
+
+    header h1 {
+      font-size: 44px;
+      line-height: 1.2;
+      font-family: Poppins, sans-serif;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    header p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      color: #d0d7e6;
+      max-width: 520px;
+    }
+
+    .hero-subline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9fb3d9;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 11px 24px;
+      background: var(--accent);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #d0d7e6;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      font-size: 12px;
+      color: #9fb3d9;
+    }
+
+    main section {
+      padding: 80px 10%;
+    }
+
+    main section:nth-of-type(odd) {
+      background: #ffffff;
+    }
+
+    main section:nth-of-type(even) {
+      background: var(--bg-light);
+    }
+
+    h2 {
+      font-family: Poppins, sans-serif;
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      font-size: 14px;
+      color: #52637d;
+      max-width: 620px;
+      margin-bottom: 32px;
+    }
+
+    /* About layout */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .about-highlight-box {
+      background: linear-gradient(135deg, #ffffff, #e6ecf7);
+      border-radius: 16px;
+      padding: 20px 22px;
+      border: 1px solid #d9dfe7;
+      font-size: 13px;
+    }
+
+    .about-highlight-box h3 {
+      margin-top: 0;
+      font-family: Poppins, sans-serif;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 18px;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    .about-points span::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 32px;
+    }
+
+    .service-box {
+      padding: 24px;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      transition: 0.28s ease;
+      background: linear-gradient(145deg, #ffffff, #f7f8fc);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+    }
+
+    .service-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8896b3;
+      margin-bottom: 6px;
+    }
+
+    .service-box h3 {
+      margin: 0 0 10px;
+      font-family: Poppins, sans-serif;
+      font-size: 17px;
+    }
+
+    .service-box p {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: #52637d;
+    }
+
+    .service-link {
+      margin-top: auto;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .service-box:hover {
+      box-shadow: 0 10px 26px rgba(8, 24, 53, 0.12);
+      transform: translateY(-4px);
+      border-color: #c3d0ea;
+    }
+
+    /* Why us strip */
+    .why-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+      font-size: 13px;
+    }
+
+    .why-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid #d9dfe7;
+      background: #ffffff;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 22px 24px;
+      border: 1px solid #d9dfe7;
+      font-size: 14px;
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      font-family: Poppins, sans-serif;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .contact-list li + li {
+      margin-top: 8px;
+    }
+
+    .contact-list span {
+      color: #52637d;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 30px 10%;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer a {
+      color: #d0e2ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 960px) {
+      .navbar {
+        padding: 12px 20px;
+      }
+
+      header {
+        padding: 0 20px;
+        text-align: left;
+      }
+
+      .hero-inner {
+        margin-top: 70px;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 30px;
+      }
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main section {
+        padding: 64px 20px;
+      }
+
+      .nav-links {
+        display: none; /* simple mobile treatment */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation using your existing sections -->
+  <div class="navbar">
+    <div class="nav-logo">Elite Global Solutions</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <div class="nav-lang-switch">
+        <a href="/index.html" class="active">EN</a>
+        <span>|</span>
+        <a href="cn.html">中文</a>
+      </div>
+      <a href="#contact" class="nav-cta">Book a Consultation</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="hero-inner fade-in">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        GLOBAL BUSINESS & LEGAL SUPPORT
+      </div>
+      <h1>ELITE GLOBAL SOLUTIONS</h1>
+      <p>
+        We provide integrated legal, tax, banking and advisory solutions for individuals and businesses expanding across borders.
+      </p>
+      <div class="hero-subline">COMPANY REGISTRY • GLOBAL NOTARY • TAX • INTERNATIONAL AFFAIRS • PR • PRIVATE BANKING</div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get Started</a>
+        <a href="#services" class="btn-secondary">View Services</a>
+      </div>
+      <div class="hero-meta">Serving clients across Australia, China, USA, Singapore, UK, UAE, Hong Kong and more.</div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="fade-in delay-1">
+      <h2>About Elite Global Solutions</h2>
+      <p class="section-intro">
+        Elite Global Solutions is a global service provider supporting micro and large businesses to expand across borders.
+        We connect clients with trusted legal, tax, banking and advisory partners in key jurisdictions around the world.
+      </p>
+
+      <div class="about-grid">
+        <div>
+          <p>
+            From company registration and international affairs to private banking introductions and public relations,
+            our team coordinates complex cross-border matters with clarity and precision. We act as your single point of
+            contact, helping you navigate requirements in multiple countries without complexity.
+          </p>
+          <div class="about-points">
+            <span>Support across 10+ major jurisdictions</span>
+            <span>Partnerships with global law and tax firms</span>
+            <span>Multilingual guidance for international clients</span>
+            <span>End-to-end coordination from start to completion</span>
+          </div>
+        </div>
+
+        <div class="about-highlight-box">
+          <h3>Global Reach, Local Expertise</h3>
+          <p>
+            AUSTRALIA • CHINA • USA • SINGAPORE • UK • UAE • HONG KONG
+          </p>
+          <p>
+            Whether you are incorporating a new company, preparing documents for overseas use, or opening international
+            bank accounts, Elite Global Solutions helps you move with confidence and compliance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="fade-in delay-2">
+      <h2>Our Solutions</h2>
+      <p class="section-intro">
+        Explore specialised service lines designed to support entrepreneurs, investors and organisations with their
+        global expansion and cross-border requirements.
+      </p>
+
+      <div class="services-grid">
+        <div class="service-box">
+          <div>
+            <div class="service-label">Business Setup</div>
+            <h3>Company Registry</h3>
+            <p>Register or relocate your company with access to 5,000+ premium global business addresses.</p>
+          </div>
+          <a href="companyregestry.html" class="service-link">View Company Registry & Relocation →</a>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-label">Legalisation</div>
+            <h3>Global Notary</h3>
+            <p>Notary, apostille and embassy legalisation across 50+ countries for personal and business documents.</p>
+          </div>
+          <a href="globalnotary.html" class="service-link">View Global Notary Services →</a>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-label">Tax & Compliance</div>
+            <h3>Tax Advisory</h3>
+            <p>Personal and corporate tax planning, international compliance and reporting support.</p>
+          </div>
+          <a href="taxadvisory.html" class="service-link">View Tax Advisory →</a>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-label">Global Lifestyle</div>
+            <h3>International Affairs</h3>
+            <p>Visa, immigration, study abroad, and international marriage support with registered advisors.</p>
+          </div>
+          <a href="internationalaffairs.html" class="service-link">View International Affairs →</a>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-label">Reputation</div>
+            <h3>Public Relations</h3>
+            <p>Strategic PR, media relations and brand positioning across global markets.</p>
+          </div>
+          <a href="publicrelations.html" class="service-link">View Public Relations →</a>
+        </div>
+
+        <div class="service-box">
+          <div>
+            <div class="service-label">Wealth & Banking</div>
+            <h3>Private Banking</h3>
+            <p>Introductions to trusted banking partners, multi-currency accounts and global wealth structuring.</p>
+          </div>
+          <a href="privatebanking.html" class="service-link">View Private Banking →</a>
+        </div>
+      </div>
+
+      <div class="why-strip">
+        <div class="why-pill">End-to-end coordination across services</div>
+        <div class="why-pill">Solutions for micro and large businesses</div>
+        <div class="why-pill">Secure handling of sensitive information</div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in delay-3">
+      <h2>Contact Us</h2>
+      <p class="section-intro">
+        Speak with our team to begin your global business or legal process today. Share your goals and we will
+        recommend the right combination of solutions and jurisdictions.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Get in Touch</h3>
+          <ul class="contact-list">
+            <li><span>Email:</span> eliteglobalsolutions@eliteglobalsolutions.co</li>
+            <li><span>Phone:</span> +61 410 244 408</li>
+            <li><span>Location:</span> Sydney, Australia</li>
+            <li><span>Hours:</span> Monday – Friday, 9:00 – 17:00 (AEST)</li>
+          </ul>
+        </div>
+
+        <div>
+          <p style="font-size: 14px; color: #52637d; margin-top: 0;">
+            Please include the countries you are interested in, the services you require, and any deadlines you are
+            working with. Our team will respond with a tailored outline of next steps.
+          </p>
+          <p style="font-size: 13px; color: #8896b3;">
+            For urgent document legalisation, tax or banking matters, indicate your time zone so we can prioritise a
+            suitable call time.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      © 2025 Elite Global Solutions PTY LTD. All rights reserved.
+    </div>
+    <div style="margin-top: 6px;">
+      Contact us: <a href="mailto:eliteglobalsolutions@eliteglobalsolutions.co">eliteglobalsolutions@eliteglobalsolutions.co</a> | +61 410 244 408
+    </div>
+  </footer>
+
+</body>
+</html>
